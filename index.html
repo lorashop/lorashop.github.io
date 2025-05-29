@@ -21,13 +21,14 @@
         </script>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="./static/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -37,13 +38,37 @@
     </head>
 
     <body>
-        <section class="hero is-light">
+        <!-- Navigation Bar -->
+        <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#top">
+                        <strong class="is-size-4">LoRAShop</strong>
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="#abstract">Abstract</a>
+                        <a class="navbar-item" href="#method">Method</a>
+                        <a class="navbar-item" href="#results">Results</a>
+                        <a class="navbar-item" href="#BibTeX">BibTeX</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero is-light" id="top">
             <div class="hero-body">
               <div class="container is-max-desktop">
                 <div class="columns is-centered">
                   <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers</h1>
-                    <div class="is-size-5 publication-authors">
+                    <h1 class="title is-1 publication-title" data-aos="fade-up">LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers</h1>
+                    <div class="is-size-5 publication-authors" data-aos="fade-up" data-aos-delay="100">
                       <span class="author-block">
                         <a href="https://yusufdalva.github.io/">Yusuf Dalva</a>,</span>
                         <span class="author-block">
@@ -53,11 +78,11 @@
                       </span>
                     </div>
           
-                    <div class="is-size-5 publication-authors">
+                    <div class="is-size-5 publication-authors" data-aos="fade-up" data-aos-delay="150">
                       <span class="author-block">Virginia Tech</span>
                     </div>
 
-                    <div class="column has-text-centered">
+                    <div class="column has-text-centered" data-aos="fade-up" data-aos-delay="200">
                         <div class="publication-links">
       
                           <span class="link-block">
@@ -87,7 +112,7 @@
           </div>
         </section>
 
-        <section class="hero teaser">
+        <section class="hero teaser" data-aos="fade-up">
             <div class="container is-max-desktop">
               <div class="hero-body">
                 <h4 class="subtitle">
@@ -99,7 +124,7 @@
                     With this work, we present latent directions discovered in domains such as Art, Fashion, Face, Cats and Cars in Stable Diffusion. -->
                 </h4>
                 <div class="container">
-                    <img src="./static/images/teaser_arxiv.png" />
+                    <img src="./static/images/teaser_arxiv.png" alt="LoRAShop Teaser" />
                     <br/>
                     <p>
                       We present LoRAShop, a training-free framework enabling the simultaneous use of multiple LoRA adapters for generation and editing. 
@@ -110,7 +135,7 @@
             </div>
         </section>
 
-        <section class="section hero is-light">
+        <section class="section hero is-light" id="abstract" data-aos="fade-up">
             <div class="container is-max-desktop">
               <!-- Abstract. -->
               <div class="columns is-centered has-text-centered">
@@ -132,7 +157,7 @@
               </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="method" data-aos="fade-up">
             <div class="container is-max-desktop">
               <div class="columns is-centered has-text-centered">
                 <div class="column is-12">
@@ -145,7 +170,7 @@
                     </p>
                   -->
                     <div class="container">
-                      <img src="./static/images/framework.png" />
+                      <img src="./static/images/framework.png" alt="LoRAShop Framework" />
                       <br />
                     </div>
         
@@ -160,7 +185,7 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" data-aos="fade-up">
             <div class="container is-max-desktop">
                 <h1 class="title is-3 has-text-centered">Extraction of Subject Priors</h1>
               <div class="columns is-centered has-text-centered">
@@ -173,7 +198,7 @@
                     </p>
                   -->
                     <div class="container">
-                      <img src="./static/images/block_motivation.png" />
+                      <img src="./static/images/block_motivation.png" alt="Block Motivation" />
                       <br />
                     </div>
                     <p>
@@ -186,22 +211,48 @@
           </section>
               
         
-          <section class="section">
+          <section class="section" id="results" data-aos="fade-up">
             <div class="container is-max-desktop">
                 <h1 class="title is-3 has-text-centered">Editing Results</h1>
               <div class="columns is-centered has-text-centered">
                 <div class="column is-12">
         
                   <div class="content has-text-justified">
-                    <!--
-                    <p>
-                     Explain method
-                    </p>
-                  -->
                   <h4 class="title is-4 has-text-centered">Personalized Editing with Single/Multiple Concepts</h4>
-                    <div class="container">
-                      <img src="./static/images/main_results.png" />
-                      <br />
+                    <div class="carousel-container">
+                      <!-- Start Carousel -->
+                      <div class="carousel">
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/main_results.png" alt="Main Results - Slide 1" />
+                            <figcaption class="has-text-centered mt-2">
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/face_swap_1.png" alt="Main Results - Slide 2" />
+                            <figcaption class="has-text-centered mt-2">
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/face_swap_2.png" alt="Main Results - Slide 3" />
+                            <figcaption class="has-text-centered mt-2">
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </div>
+                      <!-- End Carousel -->
+                      <div class="carousel-navigation">
+                        <div class="carousel-nav-left">
+                          <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="carousel-nav-right">
+                          <i class="fas fa-chevron-right"></i>
+                        </div>
+                      </div>
                     </div>
                     <p>
                         Over real/generated images, our method is able to target the individual concepts, and able to perform the desired personalized edits on them.
@@ -211,58 +262,62 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section" data-aos="fade-up">
             <div class="container is-max-desktop">
                 <h1 class="title is-3 has-text-centered">Generation with Multiple Concepts</h1>
               <div class="columns is-centered has-text-centered">
                 <div class="column is-12">
         
                   <div class="content has-text-justified">
-                    <!--
-                    <p>
-                     Explain method
-                    </p>
-                  -->
-                  <h4 class="title is-4 has-text-centered">Generation with Four Concepts</h4>
-                    <div class="container">
-                      <img src="./static/images/four_subject.png" />
-                      <br />
+                    <div class="carousel-container">
+                      <!-- Start Carousel -->
+                      <div class="carousel" id="generation-carousel">
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/four_subject.png" alt="Four Subject Generation" />
+                            <figcaption class="has-text-centered mt-2">
+                              <h4 class="title is-5">Generation with Four Concepts</h4>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/three_subject.png" alt="Three Subject Generation" />
+                            <figcaption class="has-text-centered mt-2">
+                              <h4 class="title is-5">Generation with Three Concepts</h4>
+                            </figcaption>
+                          </figure>
+                        </div>
+                        <div class="item">
+                          <figure class="image">
+                            <img src="./static/images/objects.png" alt="Object Generation" />
+                            <figcaption class="has-text-centered mt-2">
+                              <h4 class="title is-5">Generation with Concepts from Different Domains</h4>
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </div>
+                      <!-- End Carousel -->
+                      <div class="carousel-navigation">
+                        <div class="carousel-nav-left">
+                          <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="carousel-nav-right">
+                          <i class="fas fa-chevron-right"></i>
+                        </div>
+                      </div>
                     </div>
+                    <p class="has-text-centered mt-4">
+                      In addition to editing, our method is able to perform generation with multiple personalized concepts, which can be the same kind (e.g. person) or different (e.g. person and clothing).
+                    </p>
                 </div>
-                <div class="content has-text-justified">
-                  <!--
-                  <p>
-                   Explain method
-                  </p>
-                -->
-                <h4 class="title is-4 has-text-centered">Generation with Three Concepts</h4>
-                  <div class="container">
-                    <img src="./static/images/three_subject.png" />
-                    <br />
-                  </div>
-              </div>
-              <div class="content has-text-justified">
-                <!--
-                <p>
-                 Explain method
-                </p>
-              -->
-              <h4 class="title is-4 has-text-centered">Generation with Concepts from Different Domains</h4>
-                <div class="container">
-                  <img src="./static/images/objects.png" />
-                  <br />
-                </div>
-                <p>
-                    In addition to editing, our method is also able to perform generation with multiple personalized concepts, which can be the same kind (e.g. person) or different (e.g. person and clothing).
-                </p>
-            </div>
               </div>
             </div>
           </section>
 
-          <section class="section" id="BibTeX">
+          <section class="section" id="BibTeX" data-aos="fade-up">
             <div class="container is-max-desktop content">
-              <h2 class="title">BibTeX</h2>
+              <h2 class="title is-3">BibTeX</h2>
               <pre><code>
 TBD
               </code></pre>
@@ -292,5 +347,45 @@ TBD
               </div>
             </div>
           </footer>
+
+          <!-- Back to top button -->
+          <div class="back-to-top" id="back-to-top">
+            <a href="#top"><i class="fas fa-arrow-up"></i></a>
+          </div>
+
+          <!-- AOS Animation Library -->
+          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          <script>
+            // Initialize AOS animations
+            AOS.init({
+              duration: 800,
+              once: true
+            });
+
+            // Mobile menu toggle
+            document.addEventListener('DOMContentLoaded', () => {
+              const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+              if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                  el.addEventListener('click', () => {
+                    const target = el.dataset.target || el.getAttribute('aria-controls');
+                    const $target = document.getElementById(target) || el.parentElement.nextElementSibling;
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                  });
+                });
+              }
+
+              // Back to top button
+              const backToTopButton = document.getElementById('back-to-top');
+              window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                  backToTopButton.style.display = 'block';
+                } else {
+                  backToTopButton.style.display = 'none';
+                }
+              });
+            });
+          </script>
     </body>
 </html>
