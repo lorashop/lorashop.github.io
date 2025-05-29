@@ -362,6 +362,18 @@ TBD
               once: true
             });
 
+            // Ensure page is fully loaded before initializing carousels
+            window.addEventListener('load', function() {
+              // This will be called after everything is loaded
+              console.log('Page fully loaded, initializing carousels');
+              
+              // Reinitialize carousels if needed
+              if (typeof bulmaCarousel !== 'undefined') {
+                // Additional initialization can be placed here if needed
+                console.log('Bulma carousel is available');
+              }
+            });
+
             // Mobile menu toggle
             document.addEventListener('DOMContentLoaded', () => {
               const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
