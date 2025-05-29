@@ -1,2 +1,2 @@
-# fluxspace.github.io
-Webpage for project FluxSpace
+# lorashop.github.io
+Webpage for project LoRAShop
