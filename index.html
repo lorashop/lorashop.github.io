@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+        content="LoRAShop is a multi-concept composition method for image generation and editing.">
+        <meta name="keywords" content="Diffusion Models, Latent Space Exploration">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LoRAShop</title>
+        <script src="https://www.w3counter.com/tracker.js?id=155741"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+        dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+        </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    </head>
+
+    <body>
+        <section class="hero is-light">
+            <div class="hero-body">
+              <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                  <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">LoRAShop: Training-Free Multi-Concept Image Generation and Editing with Rectified Flow Transformers</h1>
+                    <div class="is-size-5 publication-authors">
+                      <span class="author-block">
+                        <a href="https://yusufdalva.github.io/">Yusuf Dalva</a>,</span>
+                        <span class="author-block">
+                            <a href="https://yesiltepe-hidir.github.io/">Hidir Yesiltepe</a>,</span>
+                      <span class="author-block">
+                        <a href="https://pinguar.org/">Pinar Yanardag</a>
+                      </span>
+                    </div>
+          
+                    <div class="is-size-5 publication-authors">
+                      <span class="author-block">Virginia Tech</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+      
+                          <span class="link-block">
+                            <a href="https://arxiv.org/abs/2412.09611"
+                               class="external-link button is-normal is-rounded is-dark">
+                              <span class="icon">
+                                  <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span>Paper</span>
+                            </a>
+                          </span>
+      
+                          <span class="link-block">
+                            <a href=""
+                               class="external-link button is-normal is-rounded is-dark">
+                              <span class="icon">
+                                  <i class="fab fa-github"></i>
+                              </span>
+                              <span>Code (coming soon)</span>
+                              </a>
+                          </span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="hero teaser">
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+                <h4 class="subtitle">
+                    <br>
+                    <b>TL;DR</b> We propose a training-freeimage editing and generation method with personalized concepts. In inference time, 
+                    we combine LoRA adapters trained for different subjects, with non-overlapping subject priors.
+                    <!--
+                    <span class="dnerf">NoiseCLR</span> discovers semantic directions in latent diffusion models in a completely unsupervised manner. 
+                    With this work, we present latent directions discovered in domains such as Art, Fashion, Face, Cats and Cars in Stable Diffusion. -->
+                </h4>
+                <div class="container">
+                    <img src="./static/images/teaser_arxiv.png" />
+                    <br/>
+                    <p>
+                      We present LoRAShop, a training-free framework enabling the simultaneous use of multiple LoRA adapters for generation and editing. 
+                      By identifying the coarse boundaries of personalized concepts as subject priors, we allow the use of multiple LoRA adapters by eliminating 
+                      the "cross-talk" between different adapters.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section hero is-light">
+            <div class="container is-max-desktop">
+              <!-- Abstract. -->
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Abstract</h2>
+                  <div class="content has-text-justified">
+                    <p>
+                      We introduce LoRAShop, the first framework for multi-concept image editing with LoRA models. LoRAShop builds on a key observation about 
+                      the feature interaction patterns inside Flux-style diffusion transformers: concept-specific transformer features activate spatially coherent 
+                      regions early in the denoising process. We harness this observation to derive a disentangled latent mask for each concept in a prior forward pass 
+                      and blend the corresponding LoRA weights only within regions bounding the concepts to be personalized. The resulting edits seamlessly integrate 
+                      multiple subjects or styles into the original scene while preserving global context, lighting, and fine details. Our experiments  demonstrate 
+                      that LoRAShop delivers better identity preservation compared to baselines. By eliminating retraining and external constraints, LoRAShop turns 
+                      personalized diffusion models into a practical `photoshop-with-LoRAs' tool and opens new avenues for compositional visual storytelling and rapid 
+                      creative iteration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-12">
+                  <h2 class="title is-3">Method</h2>
+        
+                  <div class="content has-text-justified">
+                    <!--
+                    <p>
+                     Explain method
+                    </p>
+                  -->
+                    <div class="container">
+                      <img src="./static/images/framework.png" />
+                      <br />
+                    </div>
+        
+                    <p>
+                      LoRAShop enables multi-subject generation and editing over a two-stage training-free pipeline. First, we extract the subject prior <b>M&#770;<sub>c'</sub></b>, 
+                      which gives a coarse-level prior on where the concept of interest, <b>c'</b>, is located. Following, we introduce a blending mechanism over the transformer
+                       block residuals, which both enables seamless blending of customized features and bounds the region-of-interest for the LoRA adapter utilized.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="container is-max-desktop">
+                <h1 class="title is-3 has-text-centered">Extraction of Subject Priors</h1>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-12">
+        
+                  <div class="content has-text-justified">
+                    <!--
+                    <p>
+                     Explain method
+                    </p>
+                  -->
+                    <div class="container">
+                      <img src="./static/images/block_motivation.png" />
+                      <br />
+                    </div>
+                    <p>
+                        Upon investigation of transformer blocks, we observe that the last double-stream block of FLUX provides text-image attention maps, that can separate 
+                        different entities effectively.
+                    </p>
+                </div>
+              </div>
+            </div>
+          </section>
+              
+        
+          <section class="section">
+            <div class="container is-max-desktop">
+                <h1 class="title is-3 has-text-centered">Editing Results</h1>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-12">
+        
+                  <div class="content has-text-justified">
+                    <!--
+                    <p>
+                     Explain method
+                    </p>
+                  -->
+                  <h4 class="title is-4 has-text-centered">Personalized Editing with Single/Multiple Concepts</h4>
+                    <div class="container">
+                      <img src="./static/images/main_results.png" />
+                      <br />
+                    </div>
+                    <p>
+                        Over real/generated images, our method is able to target the individual concepts, and able to perform the desired personalized edits on them.
+                    </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="container is-max-desktop">
+                <h1 class="title is-3 has-text-centered">Generation with Multiple Concepts</h1>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-12">
+        
+                  <div class="content has-text-justified">
+                    <!--
+                    <p>
+                     Explain method
+                    </p>
+                  -->
+                  <h4 class="title is-4 has-text-centered">Generation with Four Concepts</h4>
+                    <div class="container">
+                      <img src="./static/images/four_subject.png" />
+                      <br />
+                    </div>
+                </div>
+                <div class="content has-text-justified">
+                  <!--
+                  <p>
+                   Explain method
+                  </p>
+                -->
+                <h4 class="title is-4 has-text-centered">Generation with Three Concepts</h4>
+                  <div class="container">
+                    <img src="./static/images/three_subject.png" />
+                    <br />
+                  </div>
+              </div>
+              <div class="content has-text-justified">
+                <!--
+                <p>
+                 Explain method
+                </p>
+              -->
+              <h4 class="title is-4 has-text-centered">Generation with Concepts from Different Domains</h4>
+                <div class="container">
+                  <img src="./static/images/objects.png" />
+                  <br />
+                </div>
+                <p>
+                    In addition to editing, our method is also able to perform generation with multiple personalized concepts, which can be the same kind (e.g. person) or different (e.g. person and clothing).
+                </p>
+            </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="BibTeX">
+            <div class="container is-max-desktop content">
+              <h2 class="title">BibTeX</h2>
+              <pre><code>
+TBD
+              </code></pre>
+            </div>
+          </section>
+
+          <footer class="footer">
+            <div class="container">
+              <div class="content has-text-centered is-centered">
+                <a class="icon-link" href="https://github.com/yusufdalva" class="external-link" disabled>
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+              <div class="columns">
+                <div class="column is-8">
+                  <div class="content has-text-justified">
+                    <!-- <p>
+                      This website is licensed under a <a rel="license"
+                                                          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                      Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p> -->
+                    <p>This page is adapted from <a
+                        href="https://github.com/nerfies/nerfies.github.io">this</a> implementation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+    </body>
+</html>
