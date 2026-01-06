@@ -1,8 +1,19 @@
+/* Optimize font rendering */
 body {
   font-family: 'Noto Sans', sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize image loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 :root {
@@ -187,6 +198,12 @@ body {
 
 .content {
   animation: fadeIn 0.6s ease-out;
+}
+
+/* Ensure content is visible even before AOS/JS initializes */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Responsive adjustments */
@@ -417,31 +434,37 @@ html {
 .carousel-nav-left,
 .carousel-nav-right {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 40px;
-  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
   transition: all 0.3s ease;
-  opacity: 0.8;
+  opacity: 1;
   margin: 0 10px;
   pointer-events: auto;
+}
+
+.carousel .slider-navigation-previous,
+.carousel .slider-navigation-next {
+  display: none !important;
 }
 
 .carousel-nav-left:hover,
 .carousel-nav-right:hover {
   background-color: var(--primary-color);
-  color: white;
+  color: #ffffff;
   opacity: 1;
   transform: scale(1.1);
 }
 
 .carousel-nav-left i,
 .carousel-nav-right i {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Fix for carousel pagination */

@@ -24,56 +24,103 @@ function setInterpolationImage(i) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded, initializing...');
     
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-    });
-
-    // Back to top button functionality
-    const backToTopButton = $("#back-to-top");
-    
-    // Show/hide back to top button based on scroll position
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 300) {
-        backToTopButton.css('display', 'flex');
-      } else {
-        backToTopButton.css('display', 'none');
-      }
-    });
-    
-    // Smooth scroll to top when back to top button is clicked
-    backToTopButton.click(function(e) {
-      e.preventDefault();
-      $('html, body').animate({scrollTop: 0}, 800);
-      return false;
-    });
-
-    // Highlight active navigation menu item based on scroll position
-    $(window).on('scroll', function() {
-      let scrollPosition = $(this).scrollTop();
-      
-      // Check position and highlight the appropriate nav item
-      $('.navbar-item').each(function() {
-        const target = $($(this).attr('href'));
-        if (target.length && target.position().top <= scrollPosition + 200 && 
-            target.position().top + target.outerHeight() > scrollPosition + 200) {
-          $('.navbar-item').removeClass('has-text-weight-bold');
-          $(this).addClass('has-text-weight-bold');
+    // Check for click events on the navbar burger icon - vanilla JS
+    const navbarBurgers = document.querySelectorAll(".navbar-burger");
+    navbarBurgers.forEach(function(burger) {
+      burger.addEventListener('click', function() {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        burger.classList.toggle("is-active");
+        const navbarMenu = document.querySelector(".navbar-menu");
+        if (navbarMenu) {
+          navbarMenu.classList.toggle("is-active");
         }
       });
     });
 
-    // Smooth scroll for anchor links
-    $('.navbar-item').on('click', function(e) {
-      if (this.hash !== '') {
-        e.preventDefault();
-        const hash = this.hash;
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top - 70
-        }, 800);
+    // Back to top button functionality - vanilla JS
+    const backToTopButton = document.getElementById("back-to-top");
+    
+    // Show/hide back to top button based on scroll position
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      // Throttle scroll events for better performance
+      if (scrollTimeout) {
+        return;
       }
+      scrollTimeout = setTimeout(function() {
+        if (backToTopButton) {
+          if (window.pageYOffset > 300) {
+            backToTopButton.style.display = 'flex';
+          } else {
+            backToTopButton.style.display = 'none';
+          }
+        }
+        scrollTimeout = null;
+      }, 10);
+    });
+    
+    // Smooth scroll to top when back to top button is clicked
+    if (backToTopButton) {
+      backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        return false;
+      });
+    }
+
+    // Highlight active navigation menu item based on scroll position - vanilla JS
+    let navScrollTimeout;
+    window.addEventListener('scroll', function() {
+      // Throttle scroll events
+      if (navScrollTimeout) {
+        return;
+      }
+      navScrollTimeout = setTimeout(function() {
+        const scrollPosition = window.pageYOffset;
+        const navbarItems = document.querySelectorAll('.navbar-item');
+        
+        navbarItems.forEach(function(item) {
+          const href = item.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+              const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+              const targetHeight = target.offsetHeight;
+              
+              if (targetTop <= scrollPosition + 200 && 
+                  targetTop + targetHeight > scrollPosition + 200) {
+                navbarItems.forEach(function(navItem) {
+                  navItem.classList.remove('has-text-weight-bold');
+                });
+                item.classList.add('has-text-weight-bold');
+              }
+            }
+          }
+        });
+        navScrollTimeout = null;
+      }, 50);
+    });
+
+    // Smooth scroll for anchor links - vanilla JS
+    const navbarItems = document.querySelectorAll('.navbar-item');
+    navbarItems.forEach(function(item) {
+      item.addEventListener('click', function(e) {
+        const hash = this.hash;
+        if (hash !== '') {
+          e.preventDefault();
+          const target = document.querySelector(hash);
+          if (target) {
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 70;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
     });
 
     // Initialize carousels after a slight delay to ensure DOM is completely processed

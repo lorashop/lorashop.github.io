@@ -7,34 +7,45 @@
         <meta name="keywords" content="Diffusion Models, Latent Space Exploration">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>LoRAShop</title>
-        <script src="https://www.w3counter.com/tracker.js?id=155741"></script>
+        
+        <!-- Preconnect to external domains for faster loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://unpkg.com">
+        <link rel="preconnect" href="https://www.w3counter.com">
+        <link rel="preconnect" href="https://www.googletagmanager.com">
+        
+        <!-- Analytics scripts - defer to not block rendering -->
+        <script defer src="https://www.w3counter.com/tracker.js?id=155741"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
         dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
-
         gtag('config', 'G-PYVRSFMDRL');
         </script>
 
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="./static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <!-- Optimized font loading with font-display: swap -->
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:wght@400;700&family=Castoro&display=swap" rel="stylesheet">
+        
+        <!-- CSS - removed duplicate Font Awesome, using CDN only -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="./static/css/bulma.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+        <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script>
+        <!-- Scripts - defer/async for non-blocking loading -->
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script defer src="./static/js/bulma-carousel.min.js"></script>
+        <script defer src="./static/js/bulma-slider.min.js"></script>
+        <script defer src="./static/js/index.js"></script>
     </head>
 
     <body>
@@ -124,7 +135,7 @@
                     With this work, we present latent directions discovered in domains such as Art, Fashion, Face, Cats and Cars in Stable Diffusion. -->
                 </h4>
                 <div class="container">
-                    <img src="./static/images/teaser_arxiv.png" alt="LoRAShop Teaser" />
+                    <img src="./static/images/teaser_arxiv.png" alt="LoRAShop Teaser" loading="lazy" />
                     <br/>
                     <p>
                       We present LoRAShop, a training-free framework enabling the simultaneous use of multiple LoRA adapters for generation and editing. 
@@ -170,7 +181,7 @@
                     </p>
                   -->
                     <div class="container">
-                      <img src="./static/images/framework.png" alt="LoRAShop Framework" />
+                      <img src="./static/images/framework.png" alt="LoRAShop Framework" loading="lazy" />
                       <br />
                     </div>
         
@@ -198,7 +209,7 @@
                     </p>
                   -->
                     <div class="container">
-                      <img src="./static/images/block_motivation.png" alt="Block Motivation" />
+                      <img src="./static/images/block_motivation.png" alt="Block Motivation" loading="lazy" />
                       <br />
                     </div>
                     <p>
@@ -224,21 +235,21 @@
                       <div class="carousel">
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/main_results.png" alt="Main Results - Slide 1" />
+                            <img src="./static/images/main_results.png" alt="Main Results - Slide 1" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                             </figcaption>
                           </figure>
                         </div>
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/face_swap_1.png" alt="Main Results - Slide 2" />
+                            <img src="./static/images/face_swap_1.png" alt="Main Results - Slide 2" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                             </figcaption>
                           </figure>
                         </div>
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/face_swap_2.png" alt="Main Results - Slide 3" />
+                            <img src="./static/images/face_swap_2.png" alt="Main Results - Slide 3" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                             </figcaption>
                           </figure>
@@ -274,7 +285,7 @@
                       <div class="carousel" id="generation-carousel">
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/four_subject.png" alt="Four Subject Generation" />
+                            <img src="./static/images/four_subject.png" alt="Four Subject Generation" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                               <h4 class="title is-5">Generation with Four Concepts</h4>
                             </figcaption>
@@ -282,7 +293,7 @@
                         </div>
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/three_subject.png" alt="Three Subject Generation" />
+                            <img src="./static/images/three_subject.png" alt="Three Subject Generation" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                               <h4 class="title is-5">Generation with Three Concepts</h4>
                             </figcaption>
@@ -290,7 +301,7 @@
                         </div>
                         <div class="item">
                           <figure class="image">
-                            <img src="./static/images/objects.png" alt="Object Generation" />
+                            <img src="./static/images/objects.png" alt="Object Generation" loading="lazy" />
                             <figcaption class="has-text-centered mt-2">
                               <h4 class="title is-5">Generation with Concepts from Different Domains</h4>
                             </figcaption>
@@ -361,50 +372,46 @@
             <a href="#top"><i class="fas fa-arrow-up"></i></a>
           </div>
 
-          <!-- AOS Animation Library -->
-          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+          <!-- AOS Animation Library - defer loading -->
+          <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
           <script>
-            // Initialize AOS animations
-            AOS.init({
-              duration: 800,
-              once: true
-            });
-
-            // Ensure page is fully loaded before initializing carousels
+            // Initialize AOS animations after library loads
             window.addEventListener('load', function() {
-              // This will be called after everything is loaded
-              console.log('Page fully loaded, initializing carousels');
-              
-              // Reinitialize carousels if needed
-              if (typeof bulmaCarousel !== 'undefined') {
-                // Additional initialization can be placed here if needed
-                console.log('Bulma carousel is available');
+              if (typeof AOS !== 'undefined') {
+                AOS.init({
+                  duration: 800,
+                  once: true
+                });
               }
             });
 
-            // Mobile menu toggle
+            // Mobile menu toggle - vanilla JS (no jQuery needed)
             document.addEventListener('DOMContentLoaded', () => {
-              const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-              if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach( el => {
+              const navbarBurgers = document.querySelectorAll('.navbar-burger');
+              if (navbarBurgers.length > 0) {
+                navbarBurgers.forEach(el => {
                   el.addEventListener('click', () => {
                     const target = el.dataset.target || el.getAttribute('aria-controls');
-                    const $target = document.getElementById(target) || el.parentElement.nextElementSibling;
+                    const targetElement = document.getElementById(target) || el.parentElement.nextElementSibling;
                     el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
+                    if (targetElement) {
+                      targetElement.classList.toggle('is-active');
+                    }
                   });
                 });
               }
 
               // Back to top button
               const backToTopButton = document.getElementById('back-to-top');
-              window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                  backToTopButton.style.display = 'block';
-                } else {
-                  backToTopButton.style.display = 'none';
-                }
-              });
+              if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                  if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                  } else {
+                    backToTopButton.style.display = 'none';
+                  }
+                });
+              }
             });
           </script>
     </body>
