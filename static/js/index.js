@@ -123,10 +123,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Initialize carousels after a slight delay to ensure DOM is completely processed
-    setTimeout(function() {
-      initializeCarousels();
-    }, 100);
+    // Initialize carousels after libraries are loaded (since scripts use defer)
+    // Wait for bulmaCarousel to be available
+    function waitForCarousel() {
+      if (typeof bulmaCarousel !== 'undefined') {
+        setTimeout(function() {
+          initializeCarousels();
+        }, 100);
+      } else {
+        setTimeout(waitForCarousel, 50);
+      }
+    }
+    waitForCarousel();
 
     // Add fade-in animation to images on scroll
     const fadeInElements = document.querySelectorAll('.container img');
@@ -151,8 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
       image.style.transition = "opacity 0.8s ease-in-out";
       fadeInObserver.observe(image);
     });
-
-    bulmaSlider.attach();
 });
 
 // Function to initialize all carousels
